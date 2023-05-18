@@ -1,0 +1,9 @@
+<launch>
+  <rosparam file="$(find summit_xl_panda_moveit_config)/config/ros_controllers.yaml"/>
+  <param name="use_controller_manager" value="false"/>
+  <param name="trajectory_execution/execution_duration_monitoring" value ="false"/>
+  <!-- Define the controller manager plugin to use for trajectory execution -->
+  <param name="moveit_controller_manager" value="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
+  <!-- loads controller list to the param server -->
+
+</launch>

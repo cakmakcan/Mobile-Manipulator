@@ -1,0 +1,46 @@
+arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - robot_arm_joint1
+    - robot_arm_joint2
+    - robot_arm_joint3
+    - robot_arm_joint4
+    - robot_arm_joint5
+    - robot_arm_joint6
+    - robot_arm_joint7
+  constraints:
+      goal_time: 1
+      stopped_velocity_tolerance: 0.0
+      robot_arm_joint1: {trajectory: 0.1, goal: 0.1}
+      robot_arm_joint2: {trajectory: 0.1, goal: 0.1}
+      robot_arm_joint3: {trajectory: 0.1, goal: 0.1}
+      robot_arm_joint4: {trajectory: 0.1, goal: 0.1}
+      robot_arm_joint5: {trajectory: 0.1, goal: 0.1}
+      robot_arm_joint6: {trajectory: 0.1, goal: 0.1}
+      robot_arm_joint7: {trajectory: 0.1, goal: 0.1}
+  stop_trajectory_duration: 0.5
+  state_publish_rate: 25
+  action_monitor_rate: 10
+ 
+# The gripper has two claws that are not mechanically independent. When one 
+# moves 0.1, the other moves -0.1. Therefore, both claws must be managed by 
+# a single controller. However, the manufacturer has not provided a specific
+# controller. For the simulation the manufacturer has assumed that each gripper
+# is controlled independently. This is not correct because different positions
+# from reality are generated. For the real robot only the left claw is controlled.
+# The right claw is managed through its hardware interface.
+
+gripper_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+   - robot_arm_finger_joint1
+   - robot_arm_finger_joint2
+  constraints: 
+      goal_time: 1
+      stopped_velocity_tolerance: 0.00
+      robot_arm_finger_joint1: {trajectory: 0.1, goal: 0.1}
+      robot_arm_finger_joint2: {trajectory: 0.1, goal: 0.1}
+    
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 100

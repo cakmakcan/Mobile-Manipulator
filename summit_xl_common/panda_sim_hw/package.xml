@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>panda_hw_gazebo</name>
+  <version>0.0.1</version>
+  <description>panda_hw_gazebo</description>
+
+  <maintainer email="mihael.simonic@ijs.si">Mihael Simonic</maintainer>
+
+  <license>BSD</license>
+  <url type="bugtracker">https://github.com/smihael/panda_sim_hw/issues</url>
+  <url type="repository">https://github.com/smihael/panda_sim_hw/</url>
+
+  <author>Mihael Simonic</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>gazebo_dev</build_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>control_toolbox</depend>
+  <depend>controller_manager</depend>
+  <depend>pluginlib</depend>
+  <depend>hardware_interface</depend>
+  <depend>transmission_interface</depend>
+  <depend>joint_limits_interface</depend>
+  <depend>urdf</depend>
+  <depend>angles</depend>
+  <depend>gazebo_ros_control</depend>
+
+  <depend>orocos_kdl</depend>
+  <depend>kdl_parser</depend>
+  <depend>tf_conversions</depend>
+  <depend>franka_hw</depend>
+  <depend>franka_msgs</depend>
+
+  <export>
+    <gazebo_ros_control plugin="${prefix}/robot_hw_sim_plugins.xml"/>
+  </export>
+</package>

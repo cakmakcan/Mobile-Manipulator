@@ -1,0 +1,1 @@
+controller_joint_names: [robot_arm_joint1,robot_arm_joint2, robot_arm_joint3,robot_arm_joint4,robot_arm_joint5,robot_arm_joint6,robot_arm_joint7,robot_finger_joint1,robot_finger_joint2]
